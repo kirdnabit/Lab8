@@ -1,12 +1,28 @@
 import java.util.*;
 
 public class Lab8 {
-    public static int differenceInSeconds(String stTime, String endTime){
-      
+    public static int differenceInSeconds(String stTime, String endTime) {
+        String[] splitTime = stTime.split(":");
+        String[] splitEndTime = endTime.split(":");
+
+        int stMilTime = (Integer.parseInt(splitTime[0]) * 3600) + (Integer.parseInt(splitTime[1]) * 60) + (Integer.parseInt(splitTime[2]));
+        int endMilTime = (Integer.parseInt(splitEndTime[0]) * 3600) + (Integer.parseInt(splitEndTime[1]) * 60) + (Integer.parseInt(splitEndTime[2]));
+
+
     }
-  
     public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in);
-      
-  }
+        Scanner sc = new Scanner(System.in);
+
+        String[] splitTime = new String[3];
+        String[] splitEndTime = new String[3];
+        System.out.print("Enter start time: ");
+        String stTime = sc.nextLine();
+        splitTime = stTime.split(":");
+
+        System.out.print("Enter end time: ");
+        String endTime = sc.nextLine();
+        splitEndTime =endTime.split(":");
+
+
+    }
 }
