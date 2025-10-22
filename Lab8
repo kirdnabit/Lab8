@@ -7,22 +7,71 @@ public class Lab8 {
 
         int stMilTime = (Integer.parseInt(splitTime[0]) * 3600) + (Integer.parseInt(splitTime[1]) * 60) + (Integer.parseInt(splitTime[2]));
         int endMilTime = (Integer.parseInt(splitEndTime[0]) * 3600) + (Integer.parseInt(splitEndTime[1]) * 60) + (Integer.parseInt(splitEndTime[2]));
-
-
+        
+        
+        if(splitTime.length() == 3) && splitEndTime.length() == 3);
+        else{
+          throw new InvalidTimeException("Timestamp must be in format HH:MM:SS");
+        }
+        
+        if((Integer.parseInt(splitTime[0]) < 0) || (Integer.parseInt(splitEndTime[0] < 0))){
+          throw new InvalidTimeException("Hours must be greater than or equal to 0");
+        }
+        else if((Integer.parseInt(splitTime[0]) >= 24) || (Integer.parseInt(splitEndTime[0] >= 24))){
+          throw new InvalidTimeException("Hours must be less than 24"); 
+        }
+        
+        else if((Integer.parseInt(splitTime[1]) < 0) || (Integer.parseInt(splitEndTime[1] < 0))){
+          throw new InvalidTimeException("Minutes must be greater than or equal to 0");
+        }
+        else if((Integer.parseInt(splitTime[1]) >= 60) || (Integer.parseInt(splitEndTime[1] >= 60))){
+          throw new InvalidTimeException("Minutes must be less than 60"); 
+        }
+        
+        else if((Integer.parseInt(splitTime[2]) < 0) || (Integer.parseInt(splitEndTime[2] < 0))){
+          throw new InvalidTimeException("Seconds must be greater than or equal to 0");
+        }
+        else if((Integer.parseInt(splitTime[2]) >= 60) || (Integer.parseInt(splitEndTime[2] >= 60))){
+          throw new InvalidTimeException("Seconds must be less than 60"); 
+        }
+        else{
+          return endMilTime - stMilTime;
+        }
     }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String[] splitTime = new String[3];
-        String[] splitEndTime = new String[3];
-        System.out.print("Enter start time: ");
-        String stTime = sc.nextLine();
-        splitTime = stTime.split(":");
-
-        System.out.print("Enter end time: ");
-        String endTime = sc.nextLine();
-        splitEndTime =endTime.split(":");
-
+        System.out.println("[Time Calculator]");
+        
+        int option = 0;
+        while(option != 2){
+          System.out.print("1. Calculate difference in seconds" + 
+          "\n2. Exit" + "\nEnter you option: ");
+          option = sc.nextInt();
+          
+          switch(option){
+            case 1:
+              try{
+                System.out.print("\nEnter the timestamp: ");
+                int stTime = sc.nextInt();
+                
+                System.out.print("\nEnter the end timestamp: ");
+                int endTime = sc.nextInt();
+                
+              }
+              catch(InputMismatchException e){
+                System.out.print("You must enter integers for the hours, minutes, and seconds");
+              }
+              catch(InvalidTimeException e){
+                System.out.print(InvalidTimeException);
+              }
+              break;
+              
+            case 2:
+              System.out.print("Shutting off...");
+          }
+        }
 
     }
 }
