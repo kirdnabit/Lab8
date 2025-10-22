@@ -61,7 +61,7 @@ public class Lab8 {
                 
               }
               catch(InputMismatchException e){
-                System.out.print("You must enter integers for the hours, minutes, and seconds");
+                System.out.print(InputMismatchException("You must enter an integer for hours, minutes, and seconds"));
               }
               catch(InvalidTimeException e){
                 System.out.print(InvalidTimeException);
